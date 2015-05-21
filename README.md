@@ -1,39 +1,56 @@
-# Jekyll::Angular
+# Jekyll-Angular
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/jekyll/angular`. To experiment with that code, run `bin/console` for an interactive prompt.
+> A Jekyll plugin to make [AngularJS](https://angularjs.org/) play nice.
 
-TODO: Delete this and the text above, and describe your gem
+## Why?
 
-## Installation
+Unfortunately, Jekyll and Angular don't usually work well together...
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'jekyll-angular'
+```html
+<div ng-controller="foo">
+  <p>{{ bar }}</p>
+</div>
 ```
 
-And then execute:
+Gets turned into:
 
-    $ bundle
+```html
+<div ng-controller="foo">
+  <p></p>
+</div>
+```
 
-Or install it yourself as:
+**Why?** Because Jekyll interperets `{{ brackets }}` as Liquid. How do we fix this? _This_ plugin.
 
-    $ gem install jekyll-angular
+## Getting Started
 
-## Usage
+__Install the gem.__
 
-TODO: Write usage instructions here
+```
+$ gem install jekyll-angular
+```
 
-## Development
+__Add the plugin to your config.__
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
+```yaml
+# _config.yml
+gems:
+  - jekyll-angular
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+__Use the plugin for cool Angular stuff.__
 
-## Contributing
+```html
+<div ng-controller="foo">
+  <p>{{ 'bar' | angular }}</p>
+</div>
+```
 
-1. Fork it ( https://github.com/[my-github-username]/jekyll-angular/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+_Gets processed into..._
+
+```html
+<div ng-controller="foo">
+  <p>{{ bar }}</p>
+</div>
+```
+

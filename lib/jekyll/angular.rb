@@ -1,7 +1,7 @@
 require "jekyll/angular/version"
 
-module Jekyll
-  module Angular
-    # Your code goes here...
+module Jekyll::Angular::Filter
+  def angular(input)
+    "{{#{input}}}"
   end
 end

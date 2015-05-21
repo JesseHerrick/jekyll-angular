@@ -19,6 +19,6 @@ describe Jekyll::Angular do
   end
 
   it 'generates a site' do
-    expect(File.read(fixtures_dir('_site/index.html'))).to eq('{{foo}}')
+    expect(File.read(fixtures_dir('_site/index.html'))).to eq("{{foo}}\n")
   end
 end

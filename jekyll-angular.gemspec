@@ -1,11 +1,10 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'jekyll/angular/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-angular"
-  spec.version       = Jekyll::Angular::VERSION
+  spec.version       = '0.1.0'
   spec.authors       = ["Jesse Herrick"]
   spec.email         = ["jessegrantherrick@gmail.com"]
 

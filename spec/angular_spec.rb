@@ -19,6 +19,10 @@ describe Jekyll::Angular do
   end
 
   it 'generates a site' do
-    expect(File.read(fixtures_dir('_site/index.html'))).to eq("{{foo}}\n")
+    expect(fixture('_site/index.html')).to eq("{{foo}}\n")
+  end
+
+  it 'works with ng-model' do
+    expect(fixture('_site/ng-model-test.html')).to eq("<input type=\"text\" name=\"location\" id=\"locator\" placeholder=\"San Francisco, CA\" ng-model=\"nglocation\" />\n\n<span>{{nglocation}}</span>\n")
   end
 end

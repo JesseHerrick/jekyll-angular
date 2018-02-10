@@ -34,7 +34,7 @@ __Add the plugin to your config.__
 
 ```yaml
 # _config.yml
-gems:
+plugins:
   - jekyll-angular
 ```
 

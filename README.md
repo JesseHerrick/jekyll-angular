@@ -27,7 +27,13 @@ Gets turned into:
 __Install the gem.__
 
 ```
-$ gem install jekyll-angular
+# Gemfile
+
+gem 'jekyll-angular'
+```
+
+```
+$ bundle install
 ```
 
 __Add the plugin to your config.__
@@ -53,4 +59,3 @@ _Gets processed into..._
   <p>{{ bar }}</p>
 </div>
 ```
-
